@@ -18,7 +18,7 @@ document.querySelector(".submit").addEventListener("click", function(e){
                 document.querySelector('.result').insertAdjacentHTML("afterbegin", `
                     <tr class="table-${responce.validate ? "success" : "danger"}">
                     <td>${value_string}</td>
-                    <td>${responce.validate ? "Прошел" : "Провалил"}</td>
+                    <td>${responce.validate ? "Успех" : "Провал"}</td>
                     </tr>
                 `);
                 document.querySelector('.warning').innerHTML = '';
