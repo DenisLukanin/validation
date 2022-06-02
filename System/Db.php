@@ -70,8 +70,6 @@ class Db {
         }
 
         $stm->execute();
-
-        return $this->connection->lastInsertId();
     }
 }
 
