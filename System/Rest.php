@@ -1,12 +1,14 @@
-<?php  
+<?php
 
-function brackets($value){
-    insert([
-        "validateString" => $value,
-        "status" => intval(validate($value)),
+function brackets($string){
+    $status = validate($string);
+
+    Db::get_instance()->insert([
+        "validateString" => $string,
+        "status" => intval($status),
     ]);
     $response = [
-        "validate" => validate($value),
+        "validate" => $status,
     ];
     echo json_encode($response, JSON_UNESCAPED_UNICODE);
 }
@@ -40,7 +42,7 @@ function validate($string){
             $stack[] = $elem;
         }
     }
-    return count($stack) == 0 ? true : false;
+    return count($stack) == 0;
 }
 
 ?>

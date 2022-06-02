@@ -30,7 +30,7 @@
             </thead>
             <tbody class="result">
                 <?php 
-                    $results = select()->fetchAll(PDO::FETCH_ASSOC);
+                    $results =  Db::get_instance()->select()->fetchAll(PDO::FETCH_ASSOC);
                     foreach($results as $result) { ?>
                         <tr class="table-<?= $result["status"] ? "success" : "danger" ?>">
                         <td><?= $result["validateString"] ?></td>

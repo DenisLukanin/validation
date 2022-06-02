@@ -9,7 +9,7 @@ document.querySelector(".submit").addEventListener("click", function(e){
     if (Boolean(value_string)){
 
         async function post_rest(){
-            return fetch("/rest/brackets/",{
+            return fetch("/brackets/",{
                 method: 'POST',
                 headers: {'Content-Type': 'application/json;charset=utf-8'},
                 body: JSON.stringify(value_json)

@@ -1,12 +1,17 @@
 <?php 
 
-    include "system/route.php";
+    include "system/rest.php";
     include "system/db.php";
     
+    if ($_SERVER["REDIRECT_URL"] == "/"){
+        include "pages/index.php";
+    } 
+    if ($_SERVER["REDIRECT_URL"] == "/brackets/"){
+        
+        $postData = file_get_contents('php://input');
+        $data = json_decode($postData, true);
 
-    try {
-        redirect();
-    } catch ( Exception $e) {
-        echo "Обнаружена ошибка {$e->getCode()} '{$e->getMessage()}'";
+        brackets($data["value"]);
     }
+
 ?>
