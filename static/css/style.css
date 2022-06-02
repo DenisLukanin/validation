@@ -1,0 +1,7 @@
+.display-none{
+    display: none;
+}
+.table{
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 15%;
+}
