@@ -9,34 +9,40 @@
     <title>Валидация</title>
 </head>
 <body>
-<div class="container">
-    <h1>Валидация</h1>
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Проверяемое значение</label>
-        <input type="text" class="form-control input" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div class="warning text-danger"></div>
-    </div>
-    <span class="submit btn btn-primary">Отправить</span>
+    <div class="container">
 
-    <table class="table my-5">
-    <thead>
-        <tr>
-        <th scope="col">Выражение</th>
-        <th scope="col">Результат</th>
-        </tr>
-    </thead>
-        <tbody class="result">
-            <?php 
-                $results = select()->fetchAll(PDO::FETCH_ASSOC);
-                foreach($results as $result) { ?>
-                    <tr class="table-<?= $result["status"] ? "success" : "danger" ?>">
-                    <td><?= $result["validateString"] ?></td>
-                    <td><?= $result["status"] ? "Успех" : "Провал" ?></td>
-                    </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-</div>
-<script src="static/js/script.js"></script>
+        <h1>Валидация</h1>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Проверяемое значение</label>
+            <input type="text" class="form-control input" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div class="warning text-danger"></div>
+        </div>
+        <span class="submit btn btn-primary">Отправить</span>
+
+        
+        <table class="table my-5">
+            <thead>
+                <tr>
+                <th scope="col">Выражение</th>
+                <th scope="col">Результат</th>
+                </tr>
+            </thead>
+            <tbody class="result">
+                <?php 
+                    $results = select()->fetchAll(PDO::FETCH_ASSOC);
+                    foreach($results as $result) { ?>
+                        <tr class="table-<?= $result["status"] ? "success" : "danger" ?>">
+                        <td><?= $result["validateString"] ?></td>
+                        <td><?= $result["status"] ? "Успех" : "Провал" ?></td>
+                        </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        
+    </div>
+
+
+    <script src="static/js/script.js"></script>
 </body>
 </html>
