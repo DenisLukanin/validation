@@ -10,9 +10,12 @@
         print_r($value);
         echo "</pre>";
     };
+
+
     include "system/route.php";
     include "system/db.php";
     
 
+    
     redirect();
 ?>
